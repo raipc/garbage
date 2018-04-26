@@ -15,6 +15,8 @@
 | entity | docker.hub |
 | rule data type | message |
 | expression | (true &#124;&#124; elapsedTime(update_ms) < 24*60*60000)&#13;&& ( tags.status NOT IN ('0', '3', '10') &#13;  &#124;&#124; tags.status = '0' && (now.getMillis() - create_ms) > 60*60000 ) |
+| expression | (true &#124;&#124; elapsedTime(update_ms) < 24*60*60000)&#10;&#13;&& ( tags.status NOT IN ('0', '3', '10') &#10;&#13;  &#124;&#124; tags.status = '0' && (now.getMillis() - create_ms) > 60*60000 ) |
+| expression2 | (true &#124;&#124; elapsedTime(update_ms) < 24*60*60000)<br>&& ( tags.status NOT IN ('0', '3', '10') <br>  &#124;&#124; tags.status = '0' && (now.getMillis() - create_ms) > 60*60000 ) |
 | rule_filter | type = 'build' && source = 'docker.hub' |
 | severity | warning |
 | alert_type | OPEN |
